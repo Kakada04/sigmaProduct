@@ -14,10 +14,12 @@
                         'sigma-dark': '#0f172a',
                         'sigma-blue': '#1e40af',
                         'sigma-accent': '#38bdf8',
+                        'sigma-gold': '#fbbf24'
                     },
                     animation: {
                         'gradient-shift': 'gradientShift 15s ease infinite',
                         'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
                     },
                     keyframes: {
                         gradientShift: {
@@ -94,18 +96,99 @@
             z-index: -1;
             opacity: 0.3;
         }
+        
+        .promo-badge {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
     </style>
 </head>
 <body class="text-gray-100">
     <!-- Animated grid background -->
     <div class="grid-line"></div>
     
-    <!-- Header -->
-    <header class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-sigma-accent to-white bg-clip-text text-transparent">
-            SIGMA BEVERAGES
-        </h1>
-    </header>
+    <!-- Navbar -->
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center sticky top-0 z-50 bg-sigma-dark/80 backdrop-blur-md border-b border-sigma-blue/20">
+        <div class="flex items-center space-x-2">
+            <div class="w-10 h-10 rounded-lg bg-sigma-accent flex items-center justify-center">
+                <i class="fas fa-beer text-sigma-dark text-xl"></i>
+            </div>
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-sigma-accent to-white bg-clip-text text-transparent">SIGMA<span class="text-sigma-gold">BEER</span></h1>
+        </div>
+        
+        <div class="hidden md:flex space-x-8">
+            <a href="#" class="font-medium hover:text-sigma-accent transition">Home</a>
+            <a href="#" class="font-medium hover:text-sigma-accent transition">Products</a>
+            <a href="#" class="font-medium hover:text-sigma-accent transition">Limited Editions</a>
+            <a href="#" class="font-medium hover:text-sigma-accent transition">About</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <button class="p-2 rounded-full hover:bg-sigma-blue/20 transition">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="p-2 rounded-full hover:bg-sigma-blue/20 transition relative">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="absolute top-0 right-0 w-5 h-5 bg-sigma-gold text-sigma-dark text-xs rounded-full flex items-center justify-center">0</span>
+            </button>
+            <button class="hidden md:block px-4 py-2 bg-sigma-gold text-sigma-dark font-bold rounded-lg hover:bg-amber-400 transition transform hover:scale-105">
+                JOIN VIP
+            </button>
+            <button class="md:hidden p-2 rounded-full hover:bg-sigma-blue/20 transition">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Promotion -->
+    <section class="container mx-auto px-4 py-12 text-center relative">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-sigma-gold/10 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
+        
+        <span class="inline-block px-4 py-1 bg-sigma-gold/20 text-sigma-gold rounded-full mb-4 font-bold">
+            <i class="fas fa-gift mr-2"></i> EXCLUSIVE OFFER
+        </span>
+        <h2 class="text-4xl md:text-6xl font-bold mb-6">
+            Experience the <span class="promo-badge">Sigma Difference</span>
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            Crafted for the discerning palate. Our premium Sigma Beer delivers unparalleled refreshment with every sip. 
+            <span class="text-sigma-gold font-bold">Limited stock available!</span>
+        </p>
+        
+        <div class="bg-sigma-blue/20 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto border border-sigma-blue/30">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold text-sigma-gold">🔥 FLASH SALE: 20% OFF</h3>
+                    <p class="text-gray-300">On all Sigma Beer orders over $20</p>
+                </div>
+                <button class="px-6 py-3 bg-sigma-gold hover:bg-amber-400 text-sigma-dark font-bold rounded-lg transition transform hover:scale-105 shadow-lg shadow-sigma-gold/30">
+                    SHOP NOW →
+                </button>
+            </div>
+        </div>
+        
+        <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm">
+            <div class="flex items-center">
+                <i class="fas fa-shield-alt text-sigma-gold mr-2"></i>
+                <span>100% Authentic</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-truck text-sigma-gold mr-2"></i>
+                <span>Free Shipping</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-gift text-sigma-gold mr-2"></i>
+                <span>Premium Packaging</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-star text-sigma-gold mr-2"></i>
+                <span>5-Star Rated</span>
+            </div>
+        </div>
+    </section>
 
     <!-- Product Grid -->
     <section class="container mx-auto px-4 pb-20">
@@ -328,6 +411,20 @@
         </div>
     </section>
 
+    <!-- Footer CTA -->
+    <section class="py-12 bg-sigma-blue/10 backdrop-blur-sm border-t border-sigma-blue/20">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Ready to Experience Sigma Quality?</h3>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-6">
+                Join thousands of satisfied customers who've made the switch to premium Sigma Beer. 
+                Limited quantities available - order now before we sell out!
+            </p>
+            <button class="px-8 py-3 bg-sigma-gold hover:bg-amber-400 text-sigma-dark font-bold text-lg rounded-lg transition transform hover:scale-105 shadow-lg shadow-sigma-gold/30">
+                SHOP ALL SIGMA BEER →
+            </button>
+        </div>
+    </section>
+
     <script>
         // Cart animation for all buttons
         document.querySelectorAll('.product-card button').forEach(button => {
@@ -346,6 +443,16 @@
                     floatingText.style.opacity = '0';
                     setTimeout(() => document.body.removeChild(floatingText), 500);
                 }, 2000);
+            });
+        });
+        
+        // Update cart counter
+        let cartCount = 0;
+        const cartCounter = document.querySelector('.fa-shopping-cart + span');
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                cartCounter.textContent = cartCount;
             });
         });
     </script>
